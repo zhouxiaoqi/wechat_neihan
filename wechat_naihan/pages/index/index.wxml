@@ -1,0 +1,31 @@
+<!--index.wxml-->
+<view class="container">
+	<view class="header">
+		<view>推荐</view>
+		<view>视频</view>
+		<view>图片</view>
+		<view>段子</view>
+		<view>推荐</view>
+	</view>
+	
+	<block wx:for="{{ all }}">
+		<view class="content">
+			<view class="userinfo">
+				<image mode="scaleToFill" src="{{item.group.user.avatar_url}}"></image>
+				<text> {{item.group.user.name}} </text>		
+			</view>
+
+			<view class="joke">
+				{{item.group.content}}
+			</view>
+
+			<view class="action">
+				<view><image mode="scaleToFill" src="../../source/ic_pop_digg_normal.png"></image><text>{{item.group.digg_count}}</text></view>
+				<view><image mode="scaleToFill" src="../../source/ic_pop_bury_normal.png"></image><text>{{item.group.bury_count}}</text></view>
+				<view><image mode="scaleToFill" src="../../source/ic_pop_reply_normal.png"></image><text>{{item.group.comment_count}}</text></view>
+				<view><image mode="scaleToFill" src="../../source/ic_more_action_normal.png"></image><text>{{item.group.share_count}}</text></view>
+			</view>
+		</view>
+	</block>
+
+<view>

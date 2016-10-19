@@ -1,0 +1,15 @@
+.images{
+	width:100%;
+	margin:0 auto;
+	display: flex;
+}
+.images image{
+	position: relative;
+	width: 100%;
+	height: 350px;
+}
+.img_title{
+	font-size: 14px;
+	color:lightslategray;
+	margin-bottom: 5px;
+}

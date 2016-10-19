@@ -1,7 +1,8 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/images/images"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -22,8 +23,8 @@
       "iconPath":"../../source/ic_tab_discovery_normal.png",
       "selectedIconPath":"../../source/ic_tab_discovery_pressed.png"
     },{
-      "pagePath":"pages/index/index",
-      "text":"新鲜",
+      "pagePath":"pages/images/images",
+      "text":"趣图",
       "iconPath":"../../source/ic_tab_audit_normal.png",
       "selectedIconPath":"../../source/ic_tab_audit_pressed.png"
     },{

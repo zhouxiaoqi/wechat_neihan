@@ -1,21 +1,26 @@
 <!--index.wxml-->
-<view class="container">
-	<view class="header">
-		<view>推荐</view>
-		<view>视频</view>
-		<view>图片</view>
-		<view>段子</view>
-		<view>推荐</view>
+<loading hidden="{{ hidden }}" bindchange="loadingchange">
+	加载中...
+</loading>
+
+<scroll-view scroll-y="true" bindscrolltoupper="refresh" bindscrolltolower="loadmore" class="scrollView">	
+	<view wx:if="{{ hasRefresh }}" class="hasRefresh">
+		<icon type="waiting" size="25"/><text>刷新中...</text>
 	</view>
-	
-	<block wx:for="{{ all }}">
+	<view wx:else style="display: none;">
+		<text></text>
+	</view>	
+
+	<!-- 以上是刷新页面 -->
+
+	<block wx:for="{{ allJoke }}">
 		<view class="content">
 			<view class="userinfo">
 				<image mode="scaleToFill" src="{{item.group.user.avatar_url}}"></image>
 				<text> {{item.group.user.name}} </text>		
 			</view>
 
-			<view class="joke">
+			<view class="jokes">
 				{{item.group.content}}
 			</view>
 
@@ -27,5 +32,16 @@
 			</view>
 		</view>
 	</block>
+	
+	<!-- 加载更多 -->
+	<view>
+		<view wx:if="{{ hasMore }}" class="hasMore"> 
+			<icon type="waiting" size="25"/><text> 加载更多... </text>		
+		</view>	
+		<view wx:else>
+			<text> 没有更多内容..了 </text>		
+		</view>	
+	</view>
 
-<view>
+</scroll-view>	
+

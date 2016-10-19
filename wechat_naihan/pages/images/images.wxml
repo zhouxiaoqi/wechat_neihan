@@ -1,0 +1,50 @@
+<loading hidden="{{hidden}}">
+	<text>加载中...</text>
+</loading>
+
+<scroll-view scroll-y="true" bindscrolltoupper="refresh" bindscrolltolower="loadmore" class="scrollView">	
+	<view wx:if="{{ hasRefresh }}" class="hasRefresh">
+		<icon type="waiting" size="25"/><text>刷新中...</text>
+	</view>
+	<view wx:else style="display: none;">
+		<text></text>
+	</view>	
+
+	<!-- 以上是刷新页面 -->
+
+	<block wx:for="{{ imagesinfo }}">
+		<view class="content">
+			<view class="userinfo">
+				<image mode="scaleToFill" src="{{item.group.user.avatar_url}}"></image>
+				<text> {{item.group.user.name}} </text>		
+			</view>
+			
+			<view class="img_title"><text> {{ item.group.text }} </text></view>
+			<!-- <block wx:for="{{ item.group.large_image.url_list }}" wx:for-item="imgurl"> -->
+				<view class="images">
+					<image  mode="scaleToFill" src="{{item.group.large_image.url_list[0].url}}"></image>
+				</view>
+			<!-- </block> -->
+			
+
+			<view class="action">
+				<view><image mode="scaleToFill" src="../../source/ic_pop_digg_normal.png"></image><text>{{item.group.digg_count}}</text></view>
+				<view><image mode="scaleToFill" src="../../source/ic_pop_bury_normal.png"></image><text>{{item.group.bury_count}}</text></view>
+				<view><image mode="scaleToFill" src="../../source/ic_pop_reply_normal.png"></image><text>{{item.group.comment_count}}</text></view>
+				<view><image mode="scaleToFill" src="../../source/ic_more_action_normal.png"></image><text>{{item.group.share_count}}</text></view>
+			</view>
+		</view>
+	</block>
+
+		<!-- 加载更多 -->
+	<view>
+		<view wx:if="{{ hasMore }}" class="hasMore"> 
+			<icon type="waiting" size="25"/><text> 加载更多... </text>		
+		</view>	
+		<view wx:else>
+			<text> 没有更多内容..了 </text>		
+		</view>	
+	</view>
+
+</scroll-view>	
+
